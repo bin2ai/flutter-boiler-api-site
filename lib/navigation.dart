@@ -44,14 +44,18 @@ AppBar myAppBar(String title, bool signedInStatus, BuildContext context) {
       ? [
           const HomePage(),
           const AboutPage(),
-          const PricingPage(),
+          const PricingPage(
+            selected: '',
+          ),
           const ProfilePage(),
           const SettingsPage(),
         ]
       : [
           const HomePage(),
           const AboutPage(),
-          const PricingPage(),
+          const PricingPage(
+            selected: '',
+          ),
         ];
 
   return __myAppBar(
