@@ -1,8 +1,13 @@
 //settings page; marketing preferences, notifications, privacy, terms, logout
 // appbar is from navigation.dart myAppBar
 
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
+import 'package:flutter_boiler_api_site/utils/widgets.dart';
 import '../navigation.dart';
+import '../user.dart';
+import '../utils/widgets.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -10,7 +15,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar('Settings', context),
+      appBar: myAppBar('Settings', user.signedIn, context),
       body: const Body(),
     );
   }
@@ -22,8 +27,8 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: [
+      child: columnScrollable(
+        [
           const SizedBox(height: 20),
           Text(
             settings.marketingPreferences,

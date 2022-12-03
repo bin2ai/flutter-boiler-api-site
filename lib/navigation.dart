@@ -38,16 +38,25 @@ AppBar __myAppBar(String text, List<Widget> pages, BuildContext context) {
 }
 
 //call myAppBar with routes
-AppBar myAppBar(String title, BuildContext context) {
+AppBar myAppBar(String title, bool signedInStatus, BuildContext context) {
+  List<Widget> pages = [];
+  pages = signedInStatus
+      ? [
+          const HomePage(),
+          const AboutPage(),
+          const PricingPage(),
+          const ProfilePage(),
+          const SettingsPage(),
+        ]
+      : [
+          const HomePage(),
+          const AboutPage(),
+          const PricingPage(),
+        ];
+
   return __myAppBar(
     title,
-    [
-      _pageFromRoute('/'),
-      _pageFromRoute('/about'),
-      _pageFromRoute('/settings'),
-      _pageFromRoute('/pricing'),
-      _pageFromRoute('/profile'),
-    ],
+    pages,
     context,
   );
 }
@@ -56,25 +65,29 @@ AppBar myAppBar(String title, BuildContext context) {
 class Routes {
   static const String home = '/';
   static const String about = '/about';
-  static const String settings = '/settings';
   static const String pricing = '/pricing';
   static const String profile = '/profile';
+  static const String settings = '/settings';
 }
 
-//return page from route
-Widget _pageFromRoute(String route) {
-  switch (route) {
-    case Routes.home:
-      return const HomePage();
-    case Routes.about:
-      return const AboutPage();
-    case Routes.settings:
-      return const SettingsPage();
-    case Routes.pricing:
-      return const PricingPage();
-    case Routes.profile:
-      return const ProfilePage();
-    default:
-      return const ProfilePage(); //HomePage();
-  }
+//bottom bar for social media links
+
+Widget socialMediaLinks() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.facebook),
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.abc),
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.abc),
+      ),
+    ],
+  );
 }

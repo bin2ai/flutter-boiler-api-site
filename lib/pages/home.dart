@@ -2,7 +2,9 @@
 // appbar is from navigation.dart myAppBar
 
 import 'package:flutter/material.dart';
+import 'package:flutter_boiler_api_site/utils/widgets.dart';
 import '../navigation.dart';
+import '../user.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,7 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar('Home', context),
+      appBar: myAppBar('Home', user.signedIn, context),
       body: const Body(),
     );
   }
@@ -22,8 +24,8 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: const [
+      child: columnScrollable(
+        const [
           SizedBox(height: 20),
           Text(
             Home.popular,

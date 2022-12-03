@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'navigation.dart';
+import 'package:flutter_boiler_api_site/pages/home.dart';
 
 void main() {
   runApp(const MyApp(key: Key('MyApp')));
@@ -36,11 +36,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: myAppBar(widget.title, context),
-      body: const Center(
-        child: Text('Home Page'),
-      ),
-    );
+    return const HomePage();
   }
 }

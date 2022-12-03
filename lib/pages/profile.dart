@@ -3,6 +3,8 @@
 
 import 'package:flutter/material.dart';
 import '../navigation.dart';
+import '../user.dart';
+import '../utils/widgets.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -10,7 +12,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar('Profile', context),
+      appBar: myAppBar('Profile', user.signedIn, context),
       body: const Body(),
     );
   }
@@ -22,8 +24,8 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: [
+      child: columnScrollable(
+        [
           const SizedBox(height: 20),
           CircleAvatar(
             radius: 50,
