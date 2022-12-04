@@ -29,10 +29,8 @@ class _PricingPageState extends State<PricingPage> {
         child: columnScrollable(
           [
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                //inkwell with child as pricingbox and ontap calling setstate to change selected to current title
+            rowScrollable(
+              [
                 InkWell(
                   onTap: () {
                     setState(() {
@@ -40,8 +38,9 @@ class _PricingPageState extends State<PricingPage> {
                     });
                   },
                   child: pricingBox(
-                      selected, "free", pricing.free, pricing.freeDescription),
+                      selected, "free", pricing.free, pricing.basicDescription),
                 ),
+                const SizedBox(width: 20),
                 InkWell(
                   onTap: () {
                     setState(() {
@@ -51,6 +50,7 @@ class _PricingPageState extends State<PricingPage> {
                   child: pricingBox(selected, "basic", pricing.basic,
                       pricing.basicDescription),
                 ),
+                const SizedBox(width: 20),
                 InkWell(
                   onTap: () {
                     setState(() {
@@ -60,6 +60,7 @@ class _PricingPageState extends State<PricingPage> {
                   child: pricingBox(selected, "premium", pricing.premium,
                       pricing.premiumDescription),
                 ),
+                const SizedBox(width: 20),
                 InkWell(
                   onTap: () {
                     setState(() {

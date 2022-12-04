@@ -4,6 +4,7 @@ import 'pages/home.dart';
 import 'pages/pricing.dart';
 import 'pages/profile.dart';
 import 'pages/settings.dart';
+import 'pages/tutorial.dart';
 
 //widget button that pushes to new page
 Widget buttonPage(String text, Widget page, BuildContext context) {
@@ -47,6 +48,7 @@ AppBar myAppBar(String title, bool signedInStatus, BuildContext context) {
           const PricingPage(
             selected: '',
           ),
+          const TutorialPage(),
           const ProfilePage(),
           const SettingsPage(),
         ]
@@ -56,6 +58,7 @@ AppBar myAppBar(String title, bool signedInStatus, BuildContext context) {
           const PricingPage(
             selected: '',
           ),
+          const TutorialPage(),
         ];
 
   return __myAppBar(
@@ -72,6 +75,7 @@ class Routes {
   static const String pricing = '/pricing';
   static const String profile = '/profile';
   static const String settings = '/settings';
+  static const String tutoiral = '/tutorial';
 }
 
 //bottom bar for social media links
